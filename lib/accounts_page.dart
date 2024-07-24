@@ -15,8 +15,6 @@ class _AccountPageState extends State<AccountPage> {
   String _bmiStatus = '';
   String _bmiRange = '';
   String _bmiAdvice = '';
-  String _normal = '';
-
   @override
   void initState() {
     super.initState();
@@ -57,8 +55,6 @@ class _AccountPageState extends State<AccountPage> {
           double targetWeight = 18.5 * height * height;
           double weightToGain = targetWeight - weight;
           _bmiAdvice = 'You should gain ${weightToGain.toStringAsFixed(1)} kg to reach a normal weight.';
-          _normal = 'BMI 18.5 - 24.9';
-
         } else if (_bmi >= 18.5 && _bmi < 24.9) {
           _bmiStatus = 'Normal';
           _bmiRange = 'BMI 18.5 - 24.9';
@@ -69,14 +65,12 @@ class _AccountPageState extends State<AccountPage> {
           double targetWeight = 24.9 * height * height;
           double weightToLose = weight - targetWeight;
           _bmiAdvice = 'You should lose ${weightToLose.toStringAsFixed(1)} kg to reach a normal weight.';
-          _normal = 'BMI 18.5 - 24.9';
         } else {
           _bmiStatus = 'Obese';
           _bmiRange = 'BMI >= 30';
           double targetWeight = 24.9 * height * height;
           double weightToLose = weight - targetWeight;
           _bmiAdvice = 'You should lose ${weightToLose.toStringAsFixed(1)} kg to reach a normal weight.';
-          Text('BMI 18.5 - 24.9');
         }
       });
     }
@@ -139,7 +133,7 @@ class _AccountPageState extends State<AccountPage> {
             TextField(
               controller: _heightController,
               decoration: InputDecoration(
-                labelText: 'Height (cm)',
+                labelText: 'Height (m)',
                 border: OutlineInputBorder(),
               ),
               keyboardType: TextInputType.number,
