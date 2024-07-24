@@ -98,34 +98,50 @@ class WorkoutDetailPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.green,
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.green,
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5.0, left: 5.0),
+                              child: Text(
+                                'Begin Train for \$50.00',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
                           ),
-                        ),
-                        child: Text(
-                          'Begin Train for \$50.00',
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        ],
                       ),
                       SizedBox(height: 10),
-                      OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              side: BorderSide(color: Colors.green),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5.0, left: 5.0),
+                              child: Text(
+                                'Begin Train Demo',
+                                style: TextStyle(fontSize: 16, color: Colors.green),
+                              ),
+                            ),
                           ),
-                          side: BorderSide(color: Colors.green),
-                        ),
-                        child: Text(
-                          'Begin Train Demo',
-                          style: TextStyle(fontSize: 16, color: Colors.green),
-                        ),
+                        ],
                       ),
                     ],
                   ),

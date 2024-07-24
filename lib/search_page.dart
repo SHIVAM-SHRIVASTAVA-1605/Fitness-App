@@ -14,9 +14,9 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
     {'title': 'Gym', 'image': 'assets/images/gym.jpeg', 'tags': ['latest', 'most popular']},
     {'title': 'Running', 'image': 'assets/images/running.jpeg', 'tags': ['latest']},
     {'title': 'Yoga', 'image': 'assets/images/yoga.jpeg', 'tags': ['old but gold']},
-    {'title': 'Swimming', 'image': 'assets/images/crossfit.jpeg', 'tags': ['highly recommended']},
-    {'title': 'Cycling', 'image': 'assets/images/running.jpeg', 'tags': ['most popular']},
-    {'title': 'Pilates', 'image': 'assets/images/yoga.jpeg', 'tags': ['old but gold']},
+    {'title': 'Swimming', 'image': 'assets/images/swimming.jpeg', 'tags': ['highly recommended']},
+    {'title': 'Cycling', 'image': 'assets/images/cycling.jpeg', 'tags': ['most popular']},
+    {'title': 'Pilates', 'image': 'assets/images/pilates.jpeg', 'tags': ['old but gold']},
   ];
 
   List<Map<String, dynamic>> _filteredWorkouts = [];
