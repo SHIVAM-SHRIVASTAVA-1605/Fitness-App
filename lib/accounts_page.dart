@@ -12,6 +12,10 @@ class _AccountPageState extends State<AccountPage> {
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   double _bmi = 0.0;
+  String _bmiStatus = '';
+  String _bmiRange = '';
+  String _bmiAdvice = '';
+  String _normal = '';
 
   @override
   void initState() {
@@ -47,6 +51,33 @@ class _AccountPageState extends State<AccountPage> {
     if (height > 0 && weight > 0) {
       setState(() {
         _bmi = weight / (height * height);
+        if (_bmi < 18.5) {
+          _bmiStatus = 'Underweight';
+          _bmiRange = 'BMI < 18.5';
+          double targetWeight = 18.5 * height * height;
+          double weightToGain = targetWeight - weight;
+          _bmiAdvice = 'You should gain ${weightToGain.toStringAsFixed(1)} kg to reach a normal weight.';
+          _normal = 'BMI 18.5 - 24.9';
+
+        } else if (_bmi >= 18.5 && _bmi < 24.9) {
+          _bmiStatus = 'Normal';
+          _bmiRange = 'BMI 18.5 - 24.9';
+          _bmiAdvice = 'You are healthy. Keep it up!';
+        } else if (_bmi >= 25 && _bmi < 29.9) {
+          _bmiStatus = 'Overweight';
+          _bmiRange = 'BMI 25 - 29.9';
+          double targetWeight = 24.9 * height * height;
+          double weightToLose = weight - targetWeight;
+          _bmiAdvice = 'You should lose ${weightToLose.toStringAsFixed(1)} kg to reach a normal weight.';
+          _normal = 'BMI 18.5 - 24.9';
+        } else {
+          _bmiStatus = 'Obese';
+          _bmiRange = 'BMI >= 30';
+          double targetWeight = 24.9 * height * height;
+          double weightToLose = weight - targetWeight;
+          _bmiAdvice = 'You should lose ${weightToLose.toStringAsFixed(1)} kg to reach a normal weight.';
+          Text('BMI 18.5 - 24.9');
+        }
       });
     }
   }
@@ -108,7 +139,7 @@ class _AccountPageState extends State<AccountPage> {
             TextField(
               controller: _heightController,
               decoration: InputDecoration(
-                labelText: 'Height (m)',
+                labelText: 'Height (cm)',
                 border: OutlineInputBorder(),
               ),
               keyboardType: TextInputType.number,
@@ -132,6 +163,18 @@ class _AccountPageState extends State<AccountPage> {
               'Your BMI: ${_bmi.toStringAsFixed(2)}',
               style: TextStyle(fontSize: 18),
             ),
+            Text(
+              'Status: $_bmiStatus',
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              'Range: $_bmiRange',
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              _bmiAdvice,
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(height: 32),
             ElevatedButton(
               onPressed: _updateUserData,
@@ -146,7 +189,7 @@ class _AccountPageState extends State<AccountPage> {
         label: Text('Logout'),
         backgroundColor: Colors.redAccent, // Change to a decent color
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

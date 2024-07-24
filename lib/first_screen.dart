@@ -1,5 +1,6 @@
 import 'package:fitness_app/login_page.dart';
 import 'package:fitness_app/second_page.dart';
+import 'package:fitness_app/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _FirstScreenState extends State<FirstScreen> {
             SizedBox(height :30),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())); // Navigate to login screen
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginPage())); // Navigate to login screen
               },
               child: Text('LOGIN'),
               style: ElevatedButton.styleFrom(
@@ -49,7 +50,7 @@ class _FirstScreenState extends State<FirstScreen> {
             SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/signup'); // Navigate to sign-up screen
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => SignUpPage())); // Navigate to sign-up screen
               },
               child: Text(
                 "DON'T HAVE ACCOUNT? SIGN UP",
