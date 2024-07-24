@@ -210,7 +210,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           onPressed: () {
                             Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => const FirstScreen()),
+                              MaterialPageRoute(builder: (context) => const LoginPage()),
                             );
                           },
                           child: const Text(
